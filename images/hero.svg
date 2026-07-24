@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
-  <rect width="1200" height="700" fill="#7c6250"/>
-  <circle cx="980" cy="140" r="160" fill="#ffffff" opacity="0.06"/>
-  <circle cx="120" cy="600" r="220" fill="#ffffff" opacity="0.06"/>
-  <text x="50%" y="52%" font-family="Segoe UI, Arial, sans-serif" font-size="42" fill="#fafaf8" text-anchor="middle" opacity="0.85">Image provisoire</text>
-  <text x="50%" y="60%" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#fafaf8" text-anchor="middle" opacity="0.6">1200 x 700</text>
-</svg>
