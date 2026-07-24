@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Arqoy">
+  <path d="M16 54 L30 18" fill="none" stroke="#201f1d" stroke-width="8" stroke-linecap="round"/>
+  <path d="M48 54 L34 18" fill="none" stroke="#201f1d" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="32" cy="13" r="7" fill="#7c6250"/>
+</svg>

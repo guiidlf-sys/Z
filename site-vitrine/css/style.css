@@ -82,9 +82,18 @@ h1, h2, h3 {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-text);
+}
+
+.logo-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
 }
 
 .logo span {
