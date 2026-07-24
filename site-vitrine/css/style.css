@@ -103,13 +103,19 @@ h1, h2, h3 {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 36px;
+}
+
+.main-nav > * + * {
+  margin-left: 36px;
 }
 
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 36px;
+}
+
+.main-nav ul > li + li {
+  margin-left: 36px;
 }
 
 .main-nav ul a {
@@ -146,13 +152,16 @@ h1, h2, h3 {
   display: none;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
   width: 32px;
   height: 32px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+.nav-toggle > span + span {
+  margin-top: 5px;
 }
 
 .nav-toggle span {
@@ -293,8 +302,12 @@ h1, h2, h3 {
 
 .hero-actions {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
+  margin: -8px;
+}
+
+.hero-actions .btn {
+  margin: 8px;
 }
 
 .hero-image img {
@@ -431,8 +444,11 @@ section {
 .service-card ul {
   display: flex;
   flex-direction: column;
-  gap: 14px;
   margin: 0 0 24px;
+}
+
+.service-card ul > li + li {
+  margin-top: 14px;
 }
 
 .service-card li {
@@ -495,9 +511,12 @@ section {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 32px;
+  margin: -6px 0 26px;
   flex-wrap: wrap;
-  gap: 12px;
+}
+
+.section-title-row > * {
+  margin: 6px 0;
 }
 
 .section-title-row h2 {
@@ -530,8 +549,12 @@ section {
 .tool-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
   justify-content: center;
+  margin: -7px;
+}
+
+.tool-pills .tool-pill {
+  margin: 7px;
 }
 
 .tool-pill {
@@ -545,7 +568,15 @@ section {
 /* Stats (à propos) */
 .stats-row {
   display: flex;
-  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.stats-row > * {
+  margin-right: 32px;
+}
+
+.stats-row > *:last-child {
+  margin-right: 0;
 }
 
 .stat strong {
@@ -625,9 +656,12 @@ section {
 .pricing-card ul {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   flex: 1;
   margin: 0 0 28px;
+}
+
+.pricing-card ul > li + li {
+  margin-top: 10px;
 }
 
 .pricing-card li {
@@ -658,7 +692,10 @@ section {
 .contact-facts {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+}
+
+.contact-facts > * + * {
+  margin-top: 18px;
 }
 
 .contact-facts .fact-label {
@@ -678,7 +715,10 @@ section {
   padding: 40px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+}
+
+.contact-form > * + * {
+  margin-top: 18px;
 }
 
 .form-row label {
@@ -746,7 +786,11 @@ section {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  margin: -6px 0;
+}
+
+.footer-inner > * {
+  margin: 6px 0;
 }
 
 .footer-logo {
@@ -832,7 +876,7 @@ section {
     transition: max-height 0.3s ease;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
+    margin-left: 0;
   }
 
   .main-nav.open {
@@ -842,8 +886,11 @@ section {
   .main-nav ul {
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
     padding: 8px 24px 0;
+  }
+
+  .main-nav ul > li + li {
+    margin-left: 0;
   }
 
   .main-nav ul li {
@@ -893,6 +940,7 @@ section {
 
   .hero-actions .btn {
     text-align: center;
+    display: block;
   }
 
   .cta-band {
