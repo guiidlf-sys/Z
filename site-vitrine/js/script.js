@@ -16,16 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
-  });
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.querySelectorAll('[data-action="back"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
   });
 
   const revealEls = document.querySelectorAll(
-    '.card, .gallery figure, .about-image, .about-text, .hero-text, .hero-image, .steps li'
+    '.service-card, .work-group img, .about-teaser, .hero-text, .hero-image, .pricing-card'
   );
   revealEls.forEach((el) => el.classList.add('reveal'));
 
@@ -42,17 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
   );
   revealEls.forEach((el) => observer.observe(el));
 
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  document.querySelectorAll('[data-action="back"]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      if (window.history.length > 1) {
-        window.history.back();
-      } else {
-        window.location.href = 'index.html';
-      }
-    });
-  });
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   document.querySelectorAll('form.validated-form').forEach((form) => {
     const successEl = form.querySelector('.form-success');

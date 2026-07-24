@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio — Arqoy</title>
-<meta name="description" content="Exemples de réalisations d'Arqoy.">
+<meta name="description" content="Projets vidéo et informatiques réalisés par Arqoy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="images/logo-mark.svg">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,19 +15,19 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo"><img src="images/logo-full.svg" alt="Arqoy" class="logo-full"></a>
+    <a href="index.html" class="logo">Arqoy</a>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <nav class="main-nav" id="mainNav">
       <ul>
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
         <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="portfolio.html" class="active">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
       </ul>
-      <a href="devis.html" class="btn btn-primary nav-cta">Demander un devis</a>
+      <a href="contact.html" class="nav-cta">Me contacter</a>
     </nav>
   </div>
 </header>
@@ -42,36 +42,55 @@
 
   <section class="page-header">
     <div class="container">
-      <p class="eyebrow">Texte provisoire — à remplacer</p>
-      <h1>Portfolio</h1>
-      <p>Exemples de réalisations — à remplacer par vos propres projets.</p>
+      <div class="eyebrow">PORTFOLIO</div>
+      <h1>Mes projets</h1>
+      <p>Une sélection de projets vidéo et informatiques réalisés récemment.</p>
     </div>
   </section>
 
-  <section class="portfolio">
+  <section>
     <div class="container">
-      <div class="gallery">
-        <figure>
-          <img src="images/portfolio-1.svg" alt="Projet exemple 1" width="600" height="450">
-          <figcaption>Projet exemple 1</figcaption>
-        </figure>
-        <figure>
-          <img src="images/portfolio-2.svg" alt="Projet exemple 2" width="600" height="450">
-          <figcaption>Projet exemple 2</figcaption>
-        </figure>
-        <figure>
-          <img src="images/portfolio-3.svg" alt="Projet exemple 3" width="600" height="450">
-          <figcaption>Projet exemple 3</figcaption>
-        </figure>
+      <div class="work-group">
+        <h2 class="work-group-title">Montage vidéo</h2>
+        <div class="work-grid">
+          <div>
+            <img src="images/pf-video-1.svg" alt="Extrait projet vidéo 1" width="420" height="220">
+            <div class="work-item-title">Clip promo</div>
+            <div class="work-item-subtitle">Montage &amp; étalonnage</div>
+          </div>
+          <div>
+            <img src="images/pf-video-2.svg" alt="Extrait projet vidéo 2" width="420" height="220">
+            <div class="work-item-title">Vlog voyage</div>
+            <div class="work-item-subtitle">Découpage &amp; sous-titres</div>
+          </div>
+          <div>
+            <img src="images/pf-video-3.svg" alt="Extrait projet vidéo 3" width="420" height="220">
+            <div class="work-item-title">Format réseaux sociaux</div>
+            <div class="work-item-subtitle">Habillage texte</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="contact">
-    <div class="container text-center">
-      <h2>Envie d'un projet similaire ?</h2>
-      <p class="section-intro">Parlons-en et recevez un devis adapté à vos besoins.</p>
-      <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+      <div class="work-group">
+        <h2 class="work-group-title is-blue">Informatique &amp; Programmation</h2>
+        <div class="work-grid">
+          <div>
+            <img src="images/pf-code-1.svg" alt="Capture projet code 1" width="420" height="220">
+            <div class="work-item-title">Site vitrine</div>
+            <div class="work-item-subtitle">HTML / CSS / JS</div>
+          </div>
+          <div>
+            <img src="images/pf-code-2.svg" alt="Capture projet code 2" width="420" height="220">
+            <div class="work-item-title">Script d'automatisation</div>
+            <div class="work-item-subtitle">Python</div>
+          </div>
+          <div>
+            <img src="images/pf-code-3.svg" alt="Capture projet code 3" width="420" height="220">
+            <div class="work-item-title">Outil interne</div>
+            <div class="work-item-subtitle">Application web</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -79,16 +98,10 @@
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>&copy; <span id="year"></span> Arqoy — Contenu provisoire à personnaliser.</p>
-    <div class="socials">
-      <a href="#" aria-label="Facebook">FB</a>
-      <a href="#" aria-label="Instagram">IG</a>
-      <a href="#" aria-label="LinkedIn">IN</a>
-    </div>
+    <span class="footer-logo">Arqoy</span>
+    <span class="footer-copy">&copy; <span id="year"></span> Arqoy — Montage vidéo &amp; Informatique</span>
   </div>
 </footer>
-
-<button id="backToTop" class="back-to-top" aria-label="Retour en haut">↑</button>
 
 <script src="js/script.js"></script>
 </body>
