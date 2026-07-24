@@ -77,6 +77,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const allValid = fields.map(validateField).every(Boolean);
 
       if (allValid) {
+        const mailtoTarget = form.dataset.mailto;
+        if (mailtoTarget) {
+          const lines = [];
+          form.querySelectorAll('.form-row').forEach((row) => {
+            const field = row.querySelector('input, select, textarea');
+            const label = row.querySelector('label');
+            if (field && label && field.value.trim()) {
+              lines.push(`${label.textContent} : ${field.value.trim()}`);
+            }
+          });
+          const subject = 'Nouveau message depuis le site Arqoy';
+          const mailtoUrl = `mailto:${mailtoTarget}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+          window.location.href = mailtoUrl;
+        }
+
         form.reset();
         if (successEl) successEl.hidden = false;
       }
