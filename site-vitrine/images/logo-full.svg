@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 215 64" width="215" height="64" role="img" aria-label="Arqoy">
-  <circle cx="29" cy="27" r="17" fill="none" stroke="#201f1d" stroke-width="7"/>
-  <path d="M40 38 L54 52" fill="none" stroke="#7c6250" stroke-width="7" stroke-linecap="round"/>
-  <text x="74" y="43" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" fill="#201f1d">Arq<tspan fill="#7c6250">oy</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" width="220" height="64" role="img" aria-label="Arqoy">
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#7c6250"/>
+  <path d="M16 52 L30 14" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="square"/>
+  <path d="M48 52 L34 14" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="square"/>
+  <rect x="20" y="32" width="24" height="8" fill="#ffffff"/>
+  <text x="78" y="43" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" fill="#201f1d">Arq<tspan fill="#7c6250">oy</tspan></text>
 </svg>

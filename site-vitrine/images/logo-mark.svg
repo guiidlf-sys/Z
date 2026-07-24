@@ -1,4 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Arqoy">
-  <circle cx="29" cy="27" r="17" fill="none" stroke="#201f1d" stroke-width="7"/>
-  <path d="M40 38 L54 52" fill="none" stroke="#7c6250" stroke-width="7" stroke-linecap="round"/>
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#7c6250"/>
+  <path d="M16 52 L30 14" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="square"/>
+  <path d="M48 52 L34 14" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="square"/>
+  <rect x="20" y="32" width="24" height="8" fill="#ffffff"/>
 </svg>
