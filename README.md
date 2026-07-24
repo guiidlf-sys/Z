@@ -1,4 +1,4 @@
-# Z — Site vitrine (Nova Solutions)
+# Z — Site vitrine (Arqoy)
 
 Site vitrine statique multi-pages, avec du **contenu provisoire** (textes et images)
 prêt à être personnalisé : nom d'entreprise, textes, coordonnées et visuels sont des
