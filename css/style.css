@@ -558,11 +558,20 @@ section {
 }
 
 .tool-pill {
+  display: inline-block;
   background: var(--color-bg-card);
   padding: 12px 22px;
   border-radius: var(--radius-pill);
   font-size: 14px;
   font-weight: 600;
+  color: var(--color-text);
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.tool-pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 /* Stats (à propos) */
