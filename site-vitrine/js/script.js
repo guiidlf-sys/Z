@@ -44,6 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  document.querySelectorAll('[data-action="back"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+  });
+
   document.querySelectorAll('form.validated-form').forEach((form) => {
     const successEl = form.querySelector('.form-success');
     const fields = Array.from(form.querySelectorAll('input[required], select[required], textarea[required]'));
