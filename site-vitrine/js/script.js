@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  const revealEls = document.querySelectorAll('.card, .gallery figure, .about-image, .about-text, .hero-text, .hero-image');
+  const revealEls = document.querySelectorAll(
+    '.card, .gallery figure, .about-image, .about-text, .hero-text, .hero-image, .steps li'
+  );
   revealEls.forEach((el) => el.classList.add('reveal'));
 
   const observer = new IntersectionObserver(
@@ -42,47 +44,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  const form = document.getElementById('contactForm');
-  const successMessage = document.getElementById('formSuccess');
+  document.querySelectorAll('form.validated-form').forEach((form) => {
+    const successEl = form.querySelector('.form-success');
+    const fields = Array.from(form.querySelectorAll('input[required], select[required], textarea[required]'));
 
-  const validators = {
-    name: (value) => value.trim().length > 0,
-    email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()),
-    message: (value) => value.trim().length > 0,
-  };
-
-  const errorText = {
-    name: 'Veuillez indiquer votre nom.',
-    email: 'Veuillez indiquer une adresse email valide.',
-    message: 'Veuillez saisir un message.',
-  };
-
-  function validateField(field) {
-    const value = field.value;
-    const isValid = validators[field.name](value);
-    const row = field.closest('.form-row');
-    const errorEl = document.getElementById(`${field.name}Error`);
-
-    row.classList.toggle('has-error', !isValid);
-    errorEl.textContent = isValid ? '' : errorText[field.name];
-    return isValid;
-  }
-
-  ['name', 'email', 'message'].forEach((fieldName) => {
-    const field = form.elements[fieldName];
-    field.addEventListener('blur', () => validateField(field));
-  });
-
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    successMessage.hidden = true;
-
-    const fields = ['name', 'email', 'message'].map((name) => form.elements[name]);
-    const allValid = fields.map(validateField).every(Boolean);
-
-    if (allValid) {
-      form.reset();
-      successMessage.hidden = false;
+    function validateField(field) {
+      const value = field.value.trim();
+      let isValid = value.length > 0;
+      if (isValid && field.type === 'email') {
+        isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+      const row = field.closest('.form-row');
+      const errorEl = row.querySelector('.error-message');
+      row.classList.toggle('has-error', !isValid);
+      if (errorEl) {
+        errorEl.textContent = isValid ? '' : field.dataset.errorMessage || 'Ce champ est requis.';
+      }
+      return isValid;
     }
+
+    fields.forEach((field) => {
+      field.addEventListener('blur', () => validateField(field));
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (successEl) successEl.hidden = true;
+
+      const allValid = fields.map(validateField).every(Boolean);
+
+      if (allValid) {
+        form.reset();
+        if (successEl) successEl.hidden = false;
+      }
+    });
   });
 });
