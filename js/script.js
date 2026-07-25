@@ -350,8 +350,8 @@ function initPageTransitions() {
     }
   }
 
-  const tabLinks = document.querySelectorAll('.main-nav a, .nav-cta');
-  tabLinks.forEach((link) => {
+  const allLinks = document.querySelectorAll('a[href]');
+  allLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       if (!isPlainClick(event) || !isSameOriginLink(link)) return;
       const dest = link.href;
