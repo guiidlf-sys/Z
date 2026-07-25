@@ -313,6 +313,9 @@ h1, h2, h3 {
 .badge-pill {
   display: inline-block;
   padding: 6px 16px;
+  background: rgba(255, 117, 39, 0.1);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-pill);
   font-size: 13px;
@@ -573,6 +576,8 @@ section {
 
 /* Bandeau CTA de clôture */
 .cta-band {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-blue));
   border-radius: var(--radius-card);
   padding: 64px;
@@ -798,7 +803,9 @@ section {
 .form-row textarea {
   width: 100%;
   box-sizing: border-box;
-  background: var(--color-bg);
+  background: rgba(16, 9, 6, 0.5);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-btn);
   padding: 14px 16px;
@@ -943,7 +950,10 @@ section {
 /* Footer */
 .site-footer {
   padding: 40px 0;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(16, 9, 6, 0.4);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
 }
 
 .footer-inner {
@@ -1059,8 +1069,21 @@ section {
 .social-card,
 .contact-form,
 .about-teaser,
-.chatbot-panel {
+.chatbot-panel,
+.btn,
+.nav-cta,
+.tool-pill,
+.badge-pill,
+.chatbot-toggle {
   position: relative;
+}
+
+.btn,
+.nav-cta,
+.tool-pill,
+.badge-pill,
+.chatbot-toggle {
+  overflow: hidden;
 }
 
 .service-card::before,
@@ -1068,7 +1091,13 @@ section {
 .social-card::before,
 .contact-form::before,
 .about-teaser::before,
-.chatbot-panel::before {
+.chatbot-panel::before,
+.cta-band::before,
+.btn::before,
+.nav-cta::before,
+.tool-pill::before,
+.badge-pill::before,
+.chatbot-toggle::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1086,7 +1115,13 @@ section {
 .pricing-card:hover::before,
 .social-card:hover::before,
 .contact-form:hover::before,
-.about-teaser:hover::before {
+.about-teaser:hover::before,
+.cta-band:hover::before,
+.btn:hover::before,
+.nav-cta:hover::before,
+.tool-pill:hover::before,
+.badge-pill:hover::before,
+.chatbot-toggle:hover::before {
   left: 130%;
 }
 
@@ -1106,7 +1141,13 @@ section {
   .social-card::before,
   .contact-form::before,
   .about-teaser::before,
-  .chatbot-panel::before {
+  .chatbot-panel::before,
+  .cta-band::before,
+  .btn::before,
+  .nav-cta::before,
+  .tool-pill::before,
+  .badge-pill::before,
+  .chatbot-toggle::before {
     display: none;
   }
 }
@@ -1176,8 +1217,10 @@ section {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
+    background: rgba(16, 9, 6, 0.85);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
