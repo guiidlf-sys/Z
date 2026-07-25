@@ -802,16 +802,24 @@ section {
   text-align: center;
   color: var(--color-text);
   border: 1px solid transparent;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.social-card:hover {
+.social-card:hover,
+.social-card:focus-visible {
   color: var(--color-text);
   border-color: var(--color-accent);
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 34px rgba(255, 117, 39, 0.18);
+}
+
+.social-card:hover .social-icon svg,
+.social-card:focus-visible .social-icon svg {
+  transform: rotate(-10deg) scale(1.12);
 }
 
 .social-icon {
+  position: relative;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -823,9 +831,40 @@ section {
   margin-bottom: 16px;
 }
 
+.social-icon::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  opacity: 0;
+  animation: social-pulse 2.6s ease-out infinite;
+}
+
 .social-icon svg {
   width: 26px;
   height: 26px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+@keyframes social-pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.55;
+  }
+  70%,
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-icon::before {
+    animation: none;
+    display: none;
+  }
 }
 
 .social-name {

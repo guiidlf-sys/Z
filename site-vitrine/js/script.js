@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const revealEls = document.querySelectorAll(
-    '.service-card, .work-group img, .about-teaser, .hero-text, .hero-image, .pricing-card'
+    '.service-card, .work-group img, .about-teaser, .hero-text, .hero-image, .pricing-card, .social-card'
   );
   revealEls.forEach((el) => el.classList.add('reveal'));
 
