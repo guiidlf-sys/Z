@@ -1,3 +1,27 @@
+(function redirectHomeOnReload() {
+  var isReload = false;
+  try {
+    if (window.performance && typeof performance.getEntriesByType === 'function') {
+      var navEntries = performance.getEntriesByType('navigation');
+      if (navEntries.length && navEntries[0].type === 'reload') {
+        isReload = true;
+      }
+    } else if (window.performance && performance.navigation && performance.navigation.type === 1) {
+      isReload = true;
+    }
+  } catch (e) {
+    isReload = false;
+  }
+
+  if (isReload) {
+    var path = window.location.pathname;
+    var isHome = /(^|\/)index\.html$/.test(path) || /\/$/.test(path);
+    if (!isHome) {
+      window.location.replace('index.html');
+    }
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
