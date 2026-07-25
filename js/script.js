@@ -98,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  initPageTransitions();
+
   document.querySelectorAll('[data-action="back"]').forEach((btn) => {
     btn.addEventListener('click', () => {
       if (window.history.length > 1) {
@@ -320,5 +322,52 @@ function initChatbot() {
     input.value = '';
     const answer = findAnswer(value);
     window.setTimeout(() => addMessage(answer, 'bot'), 400);
+  });
+}
+
+function initPageTransitions() {
+  const reducedMotion =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'page-transition';
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML =
+    '<span class="page-transition-fill"></span><span class="page-transition-mark">Arqoy</span>';
+  document.body.appendChild(overlay);
+
+  function isPlainClick(event) {
+    return !(event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0);
+  }
+
+  function isSameOriginLink(link) {
+    if (!link.href || link.target === '_blank') return false;
+    if (/^(mailto:|tel:|javascript:)/.test(link.getAttribute('href') || '')) return false;
+    try {
+      return new URL(link.href, window.location.href).origin === window.location.origin;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  const tabLinks = document.querySelectorAll('.main-nav a, .nav-cta');
+  tabLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (!isPlainClick(event) || !isSameOriginLink(link)) return;
+      const dest = link.href;
+      if (dest === window.location.href) return;
+
+      event.preventDefault();
+
+      if (reducedMotion) {
+        window.location.href = dest;
+        return;
+      }
+
+      overlay.classList.add('is-active');
+      window.setTimeout(() => {
+        window.location.href = dest;
+      }, 420);
+    });
   });
 }
