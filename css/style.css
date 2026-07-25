@@ -426,7 +426,7 @@ section {
   background: rgba(28, 20, 16, 0.55);
   backdrop-filter: blur(16px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-card);
   padding: 56px;
 }
@@ -614,7 +614,7 @@ section {
   font-size: 14px;
   font-weight: 600;
   color: var(--color-text);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -665,7 +665,7 @@ section {
   background: rgba(28, 20, 16, 0.55);
   backdrop-filter: blur(16px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-card);
   padding: 40px;
   display: flex;
@@ -774,7 +774,7 @@ section {
   background: rgba(28, 20, 16, 0.55);
   backdrop-filter: blur(16px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-card);
   padding: 40px;
   display: flex;
@@ -858,7 +858,7 @@ section {
   align-items: center;
   text-align: center;
   color: var(--color-text);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1050,6 +1050,64 @@ section {
   .service-card:hover,
   .pricing-card:hover {
     transform: none;
+  }
+}
+
+/* Liquid glass sheen */
+.service-card,
+.pricing-card,
+.social-card,
+.contact-form,
+.about-teaser,
+.chatbot-panel {
+  position: relative;
+}
+
+.service-card::before,
+.pricing-card::before,
+.social-card::before,
+.contact-form::before,
+.about-teaser::before,
+.chatbot-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.85s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.service-card:hover::before,
+.pricing-card:hover::before,
+.social-card:hover::before,
+.contact-form:hover::before,
+.about-teaser:hover::before {
+  left: 130%;
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card::before,
+  .pricing-card::before,
+  .social-card::before,
+  .contact-form::before,
+  .about-teaser::before,
+  .chatbot-panel::before {
+    display: none;
   }
 }
 
