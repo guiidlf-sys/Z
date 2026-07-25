@@ -27,11 +27,45 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   font-family: var(--font-body);
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.6;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::before {
+  width: 480px;
+  height: 480px;
+  top: -140px;
+  left: -120px;
+  background: rgba(255, 117, 39, 0.2);
+}
+
+body::after {
+  width: 520px;
+  height: 520px;
+  bottom: -160px;
+  right: -130px;
+  background: rgba(73, 169, 255, 0.16);
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 img {
@@ -76,9 +110,10 @@ h1, h2, h3 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(16, 9, 6, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(16, 9, 6, 0.78);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .header-inner {
@@ -388,7 +423,10 @@ section {
   grid-template-columns: 0.8fr 1.2fr;
   gap: 56px;
   align-items: center;
-  background: var(--color-bg-card);
+  background: rgba(28, 20, 16, 0.55);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-card);
   padding: 56px;
 }
@@ -426,7 +464,9 @@ section {
 }
 
 .service-card {
-  background: var(--color-bg-card);
+  background: rgba(28, 20, 16, 0.55);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
   border-radius: var(--radius-card);
   padding: 44px;
   border-top: 3px solid var(--color-accent);
@@ -566,13 +606,15 @@ section {
 
 .tool-pill {
   display: inline-block;
-  background: var(--color-bg-card);
+  background: rgba(28, 20, 16, 0.55);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
   padding: 12px 22px;
   border-radius: var(--radius-pill);
   font-size: 14px;
   font-weight: 600;
   color: var(--color-text);
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -620,7 +662,10 @@ section {
 }
 
 .pricing-card {
-  background: var(--color-bg-card);
+  background: rgba(28, 20, 16, 0.55);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-card);
   padding: 40px;
   display: flex;
@@ -629,7 +674,7 @@ section {
 }
 
 .pricing-card.is-featured {
-  background: var(--color-bg-card-featured);
+  background: rgba(35, 24, 19, 0.6);
   border: 2px solid var(--color-accent);
 }
 
@@ -726,7 +771,10 @@ section {
 }
 
 .contact-form {
-  background: var(--color-bg-card);
+  background: rgba(28, 20, 16, 0.55);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-card);
   padding: 40px;
   display: flex;
@@ -800,7 +848,9 @@ section {
 }
 
 .social-card {
-  background: var(--color-bg-card);
+  background: rgba(28, 20, 16, 0.55);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
   border-radius: var(--radius-card);
   padding: 32px;
   display: flex;
@@ -808,7 +858,7 @@ section {
   align-items: center;
   text-align: center;
   color: var(--color-text);
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1192,8 +1242,10 @@ section {
   width: 320px;
   max-width: calc(100vw - 32px);
   max-height: min(480px, calc(100vh - 140px));
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background: rgba(28, 20, 16, 0.85);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-card);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
   display: flex;
@@ -1343,5 +1395,80 @@ section {
   .chatbot-toggle {
     right: 16px;
     bottom: 16px;
+  }
+}
+
+/* Preloader */
+body.preloading {
+  overflow: hidden;
+}
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease;
+}
+
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preloader-screen {
+  width: 96px;
+  height: 96px;
+  color: var(--color-accent);
+  margin-bottom: 28px;
+  transition: transform 0.8s cubic-bezier(0.6, 0, 0.85, 0.35);
+}
+
+.preloader-bar-track {
+  width: 220px;
+  max-width: 60vw;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.preloader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-blue));
+  border-radius: var(--radius-pill);
+}
+
+.preloader-percent {
+  margin-top: 14px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.preloader.is-zooming {
+  opacity: 0;
+}
+
+.preloader.is-zooming .preloader-screen {
+  transform: scale(20);
+  color: var(--color-accent-hover);
+}
+
+.preloader.is-done {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader {
+    display: none !important;
   }
 }
