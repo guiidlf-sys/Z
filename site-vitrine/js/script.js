@@ -39,6 +39,47 @@
   });
 })();
 
+(function preloader() {
+  const el = document.getElementById('preloader');
+  if (!el) return;
+
+  const reducedMotion =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) {
+    el.classList.add('is-done');
+    return;
+  }
+
+  const fill = document.getElementById('preloaderBarFill');
+  const percentEl = document.getElementById('preloaderPercent');
+  document.body.classList.add('preloading');
+
+  const duration = 1500;
+  let start = null;
+
+  function tick(timestamp) {
+    if (!start) start = timestamp;
+    const elapsed = timestamp - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const pct = Math.round(progress * 100);
+    fill.style.width = pct + '%';
+    percentEl.textContent = pct + '%';
+    if (progress < 1) {
+      window.requestAnimationFrame(tick);
+    } else {
+      window.setTimeout(() => {
+        el.classList.add('is-zooming');
+        window.setTimeout(() => {
+          el.classList.add('is-done');
+          document.body.classList.remove('preloading');
+        }, 750);
+      }, 200);
+    }
+  }
+
+  window.requestAnimationFrame(tick);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
