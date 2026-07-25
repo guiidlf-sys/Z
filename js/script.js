@@ -1,25 +1,42 @@
 (function redirectHomeOnReload() {
-  var isReload = false;
-  try {
-    if (window.performance && typeof performance.getEntriesByType === 'function') {
-      var navEntries = performance.getEntriesByType('navigation');
-      if (navEntries.length && navEntries[0].type === 'reload') {
-        isReload = true;
-      }
-    } else if (window.performance && performance.navigation && performance.navigation.type === 1) {
-      isReload = true;
-    }
-  } catch (e) {
-    isReload = false;
-  }
-
-  if (isReload) {
+  function goHomeIfNotHome() {
     var path = window.location.pathname;
     var isHome = /(^|\/)index\.html$/.test(path) || /\/$/.test(path);
     if (!isHome) {
       window.location.replace('index.html');
     }
   }
+
+  function wasReloaded() {
+    var reloaded = false;
+    try {
+      if (window.performance && typeof performance.getEntriesByType === 'function') {
+        var navEntries = performance.getEntriesByType('navigation');
+        if (navEntries.length && navEntries[0].type === 'reload') {
+          reloaded = true;
+        }
+      }
+      if (!reloaded && window.performance && performance.navigation && performance.navigation.type === 1) {
+        reloaded = true;
+      }
+    } catch (e) {
+      reloaded = false;
+    }
+    return reloaded;
+  }
+
+  if (wasReloaded()) {
+    goHomeIfNotHome();
+  }
+
+  // Some browsers (notably older iOS Safari) restore a suspended page from the
+  // back/forward cache instead of firing a normal reload — the script above
+  // never re-runs in that case, so catch it separately via pageshow.
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      goHomeIfNotHome();
+    }
+  });
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
