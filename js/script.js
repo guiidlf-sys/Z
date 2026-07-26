@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const revealEls = document.querySelectorAll(
-    '.service-card, .work-group img, .work-grid > img, .work-grid > div, .about-teaser, .hero-text, .hero-image, .pricing-card, .social-card, .page-header, .section-header, .cta-band, .contact-form, .contact-facts, .stats-row .stat, .tool-pills'
+    '.service-card, .work-group img, .work-grid > img, .work-grid > div, .about-teaser, .hero-text, .hero-image, .pricing-card, .social-card, .page-header, .section-header, .cta-band, .contact-form, .contact-facts, .stats-row .stat, .tool-pills, .process-step, .testimonial-empty, .showreel-placeholder'
   );
   revealEls.forEach((el) => el.classList.add('reveal'));
 
@@ -183,7 +183,54 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   initChatbot();
+  initLightbox();
 });
+
+function initLightbox() {
+  const images = document.querySelectorAll('.work-grid img');
+  if (!images.length) return;
+
+  const box = document.createElement('div');
+  box.className = 'lightbox';
+  box.innerHTML =
+    '<div class="lightbox-inner">' +
+    '<button class="lightbox-close" aria-label="Fermer">&times;</button>' +
+    '<img src="" alt="">' +
+    '<div class="lightbox-caption"></div>' +
+    '</div>';
+  document.body.appendChild(box);
+
+  const imgEl = box.querySelector('img');
+  const captionEl = box.querySelector('.lightbox-caption');
+  const closeBtn = box.querySelector('.lightbox-close');
+
+  function openLightbox(src, caption) {
+    imgEl.src = src;
+    imgEl.alt = caption;
+    captionEl.textContent = caption;
+    box.classList.add('is-open');
+  }
+
+  function closeLightbox() {
+    box.classList.remove('is-open');
+  }
+
+  images.forEach((img) => {
+    img.addEventListener('click', () => {
+      const titleEl = img.parentElement.querySelector('.work-item-title');
+      const caption = titleEl ? titleEl.textContent : img.alt;
+      openLightbox(img.src, caption);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  box.addEventListener('click', (event) => {
+    if (event.target === box) closeLightbox();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeLightbox();
+  });
+}
 
 function initChatbot() {
   const FAQ = [
