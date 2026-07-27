@@ -1021,6 +1021,15 @@ section {
   font-size: 15px;
 }
 
+.contact-facts .fact-value a {
+  color: #25d366;
+  text-decoration: none;
+}
+
+.contact-facts .fact-value a:hover {
+  text-decoration: underline;
+}
+
 .contact-form {
   background: rgba(28, 20, 16, 0.55);
   backdrop-filter: blur(16px) saturate(160%);
@@ -1662,6 +1671,53 @@ section {
   font-size: 15px;
   line-height: 1.6;
   color: var(--color-text-secondary);
+}
+
+/* WhatsApp float button */
+.whatsapp-float {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  z-index: 200;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  background: #20bd5a;
+  transform: scale(1.08);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    left: 16px;
+    bottom: 16px;
+    width: 50px;
+    height: 50px;
+  }
+  .whatsapp-float svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float {
+    transition: none;
+  }
 }
 
 /* Chatbot */
