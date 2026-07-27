@@ -184,7 +184,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initChatbot();
   initLightbox();
+  initWhatsApp();
 });
+
+function initWhatsApp() {
+  const link = document.createElement('a');
+  link.className = 'whatsapp-float';
+  link.href = 'https://wa.me/qr/L4VHKKDOTTUKP1';
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.setAttribute('aria-label', 'Me contacter sur WhatsApp');
+  link.innerHTML =
+    '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+    '<path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.76.46 3.45 1.33 4.95L2 22l5.2-1.36a9.96 9.96 0 0 0 4.84 1.23h.01c5.52 0 10-4.48 10-10s-4.48-9.87-10.01-9.87zm0 18.2h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.1.81.83-3.02-.2-.31A8.18 8.18 0 0 1 3.84 12c0-4.52 3.68-8.2 8.2-8.2s8.2 3.67 8.2 8.2-3.68 8.2-8.2 8.2zm4.5-6.13c-.25-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42-.14-.01-.31-.01-.47-.01-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.04 0 1.2.88 2.36 1 2.52.12.16 1.73 2.64 4.2 3.7.59.25 1.05.4 1.4.52.59.19 1.13.16 1.56.1.48-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28z"/>' +
+    '</svg>';
+  document.body.appendChild(link);
+}
 
 function initLightbox() {
   const images = document.querySelectorAll('.work-grid img');
