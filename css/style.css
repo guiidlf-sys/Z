@@ -987,6 +987,20 @@ section {
   font-size: 14px;
 }
 
+.pricing-pay-link {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-accent-blue);
+  text-decoration: none;
+}
+
+.pricing-pay-link:hover {
+  text-decoration: underline;
+}
+
 /* Contact */
 .contact-layout {
   display: grid;
