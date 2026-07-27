@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
               lines.push(`${label.textContent} : ${field.value.trim()}`);
             }
           });
-          const subject = 'Nouveau message depuis le site Arqoy';
+          const subject = form.dataset.subject || 'Nouveau message depuis le site Arqoy';
           const mailtoUrl = `mailto:${mailtoTarget}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
           window.location.href = mailtoUrl;
         }

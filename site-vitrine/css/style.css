@@ -753,6 +753,21 @@ section {
   margin: 0 0 18px;
 }
 
+.testimonial-empty-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 28px;
+}
+
+@media (max-width: 480px) {
+  .testimonial-empty-links {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
 /* Showreel */
 .showreel-placeholder {
   text-align: center;

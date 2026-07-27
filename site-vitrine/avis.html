@@ -6,17 +6,17 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Contact — Arqoy</title>
-<meta name="description" content="Contactez Arqoy pour un projet de montage vidéo ou de développement.">
+<title>Laisser un avis — Arqoy</title>
+<meta name="description" content="Vous avez travaillé avec Arqoy ? Partagez votre expérience de montage vidéo ou de développement.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://guiidlf-sys.github.io/Z/contact.html">
-<meta property="og:title" content="Contact — Arqoy">
-<meta property="og:description" content="Contactez Arqoy pour un projet de montage vidéo ou de développement.">
+<meta property="og:url" content="https://guiidlf-sys.github.io/Z/avis.html">
+<meta property="og:title" content="Laisser un avis — Arqoy">
+<meta property="og:description" content="Vous avez travaillé avec Arqoy ? Partagez votre expérience de montage vidéo ou de développement.">
 <meta property="og:image" content="https://guiidlf-sys.github.io/Z/images/hero-photo.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact — Arqoy">
-<meta name="twitter:description" content="Contactez Arqoy pour un projet de montage vidéo ou de développement.">
+<meta name="twitter:title" content="Laisser un avis — Arqoy">
+<meta name="twitter:description" content="Vous avez travaillé avec Arqoy ? Partagez votre expérience de montage vidéo ou de développement.">
 <meta name="twitter:image" content="https://guiidlf-sys.github.io/Z/images/hero-photo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,55 +57,43 @@
   <section class="hero">
     <div class="container contact-layout">
       <div class="contact-info">
-        <div class="eyebrow">CONTACT</div>
-        <h1>Parlons de votre projet</h1>
-        <p>Que ce soit pour une vidéo à monter ou un outil à développer, écrivez-moi — je réponds rapidement.</p>
-        <div class="contact-facts">
-          <div>
-            <div class="fact-label">Email</div>
-            <div class="fact-value">contactArqoy@gmail.com</div>
-          </div>
-          <div>
-            <div class="fact-label">WhatsApp</div>
-            <div class="fact-value"><a href="https://wa.me/qr/L4VHKKDOTTUKP1" target="_blank" rel="noopener">Discuter directement →</a></div>
-          </div>
-          <div>
-            <div class="fact-label">Réponse</div>
-            <div class="fact-value">Sous 24-48h</div>
-          </div>
-        </div>
+        <div class="eyebrow">AVIS</div>
+        <h1>Vous avez déjà travaillé avec moi ?</h1>
+        <p>Votre avis compte énormément, surtout en tant que débutant : il aide les prochains visiteurs à se décider et m'aide à m'améliorer. Le formulaire ouvre votre messagerie avec l'avis prérempli — je le publie ensuite sur la page d'accueil.</p>
       </div>
-      <form class="contact-form validated-form" data-mailto="contactArqoy@gmail.com" novalidate>
+      <form class="contact-form validated-form" data-mailto="contactArqoy@gmail.com" data-subject="Nouvel avis client — site Arqoy" novalidate>
         <div class="form-row">
-          <label for="name">Nom</label>
-          <input type="text" id="name" name="name" placeholder="Votre nom" required data-error-message="Veuillez indiquer votre nom.">
+          <label for="avis-name">Nom</label>
+          <input type="text" id="avis-name" name="name" placeholder="Votre nom (ou pseudo)" required data-error-message="Veuillez indiquer votre nom.">
           <span class="error-message"></span>
         </div>
         <div class="form-row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="vous@exemple.fr" required data-error-message="Veuillez indiquer une adresse email valide.">
-          <span class="error-message"></span>
-        </div>
-        <div class="form-row">
-          <label for="phone">Téléphone</label>
-          <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" autocomplete="tel" required data-error-message="Veuillez indiquer votre numéro de téléphone.">
-          <span class="error-message"></span>
-        </div>
-        <div class="form-row">
-          <label for="project-type">Type de projet</label>
-          <select id="project-type" name="project-type">
+          <label for="avis-project">Type de projet</label>
+          <select id="avis-project" name="project-type">
             <option>Montage vidéo</option>
             <option>Informatique / Programmation</option>
             <option>Les deux</option>
           </select>
         </div>
         <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet..." required data-error-message="Veuillez décrire votre projet."></textarea>
+          <label for="avis-rating">Note</label>
+          <select id="avis-rating" name="rating" required data-error-message="Veuillez choisir une note.">
+            <option value="" selected disabled>Sélectionnez une note</option>
+            <option value="★★★★★ (5/5)">★★★★★ (5/5) — Excellent</option>
+            <option value="★★★★☆ (4/5)">★★★★☆ (4/5) — Très bien</option>
+            <option value="★★★☆☆ (3/5)">★★★☆☆ (3/5) — Correct</option>
+            <option value="★★☆☆☆ (2/5)">★★☆☆☆ (2/5) — Décevant</option>
+            <option value="★☆☆☆☆ (1/5)">★☆☆☆☆ (1/5) — Insatisfaisant</option>
+          </select>
           <span class="error-message"></span>
         </div>
-        <button type="submit" class="btn btn-primary">Envoyer le message</button>
-        <p class="form-success" hidden>Votre logiciel de messagerie va s'ouvrir avec le message pré-rempli — il ne reste plus qu'à cliquer sur Envoyer !</p>
+        <div class="form-row">
+          <label for="avis-message">Votre avis</label>
+          <textarea id="avis-message" name="message" rows="5" placeholder="Décrivez votre expérience..." required data-error-message="Veuillez rédiger votre avis."></textarea>
+          <span class="error-message"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Envoyer mon avis</button>
+        <p class="form-success" hidden>Votre logiciel de messagerie va s'ouvrir avec l'avis prérempli — il ne reste plus qu'à cliquer sur Envoyer !</p>
       </form>
     </div>
   </section>
