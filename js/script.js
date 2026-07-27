@@ -398,6 +398,14 @@ function initPageTransitions() {
     '<span class="page-transition-fill"></span><span class="page-transition-mark">Arqoy</span>';
   document.body.appendChild(overlay);
 
+  // iOS Safari can restore a page from the back/forward cache mid-transition,
+  // leaving the overlay frozen in its fully-visible state — hide it again on restore.
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      overlay.classList.remove('is-active');
+    }
+  });
+
   function isPlainClick(event) {
     return !(event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0);
   }
