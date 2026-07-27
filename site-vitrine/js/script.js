@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const revealEls = document.querySelectorAll(
-    '.service-card, .work-group img, .work-grid > img, .work-grid > div, .about-teaser, .hero-text, .hero-image, .pricing-card, .social-card, .page-header, .section-header, .cta-band, .contact-form, .contact-facts, .stats-row .stat, .tool-pills, .process-step, .testimonial-empty, .showreel-placeholder'
+    '.service-card, .work-group img, .work-grid > img, .work-grid > div, .about-teaser, .hero-text, .hero-image, .pricing-card, .social-card, .page-header, .section-header, .cta-band, .contact-form, .contact-facts, .stats-row .stat, .tool-pills, .process-step, .testimonial-empty, .showreel-placeholder, .not-found-card, .faq-item'
   );
   revealEls.forEach((el) => el.classList.add('reveal'));
 
